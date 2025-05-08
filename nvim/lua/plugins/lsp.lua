@@ -35,4 +35,19 @@ return {
 			keyMapper("<leader>ca", vim.lsp.buf.code_action)
 		end,
 	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "LspAttach",
+		opts = {
+			bind = true,
+			floating_window = true,
+			hint_enable = true,
+			handler_opt = {
+				border = "rounded",
+			},
+		},
+		config = function(_, opts)
+			require("lsp_signature").on_attach(opts)
+		end,
+	},
 }
